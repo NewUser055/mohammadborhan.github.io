@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohammad Borhan Uddin — Materials Science Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ─── CSS Variables ─────────────────────────────────── */
+    :root {
+      --bg:          #F8F6F1;
+      --bg-alt:      #F0EDE4;
+      --ink:         #1C1B18;
+      --ink-soft:    #4A4840;
+      --ink-muted:   #7A7670;
+      --gold:        #8B6400;
+      --gold-light:  #C49A1A;
+      --navy:        #1E2D5A;
+      --navy-soft:   #2C3E6B;
+      --rule:        #D6D0C0;
+      --card-bg:     #FFFFFF;
+      --serif:       'Playfair Display', Georgia, serif;
+      --body:        'Source Serif 4', Georgia, serif;
+      --mono:        'JetBrains Mono', monospace;
+      --max:         1100px;
+      --nav-h:       64px;
+    }
+
+    /* ─── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 17px; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--body);
+      font-weight: 300;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--gold); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── Navigation ─────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-h);
+      background: rgba(248, 246, 241, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2rem;
+    }
+    .nav-brand {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--body);
+      font-size: 0.82rem;
+      font-weight: 400;
+      color: var(--ink-soft);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* Hamburger */
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); transition: 0.3s; }
+
+    /* ─── Section Base ───────────────────────────────────── */
+    section {
+      padding: 5rem 2rem;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    section + section { border-top: 1px solid var(--rule); }
+    #home + section { border-top: none; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ─── Hero ───────────────────────────────────────────── */
+    #home {
+      max-width: var(--max);
+      padding-top: calc(var(--nav-h) + 5rem);
+      padding-bottom: 5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-top: none;
+    }
+
+    /* Avatar */
+    .hero-avatar-wrap {
+      position: relative;
+      margin-bottom: 1.75rem;
+    }
+    .hero-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: var(--bg-alt);
+      border: 3px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      margin: 0 auto;
+    }
+
+    /* Name & role */
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    .hero-role {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.35rem;
+    }
+    .hero-location {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    /* Social links row */
+    .hero-card-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.35rem;
+      margin-bottom: 2.5rem;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--ink-soft);
+      text-decoration: none;
+      padding: 0.4rem 0.85rem;
+      border: 1px solid var(--rule);
+      background: var(--card-bg);
+      transition: all 0.2s;
+    }
+    .card-link:hover {
+      color: var(--navy);
+      border-color: var(--navy);
+      background: var(--bg-alt);
+      text-decoration: none;
+    }
+    .card-link svg { flex-shrink: 0; }
+
+    /* Divider rule */
+    .hero-rule-line {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 2rem;
+    }
+
+    /* Pitch */
+    .hero-pitch {
+      font-size: 1.05rem;
+      color: var(--ink-soft);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+      line-height: 1.85;
+    }
+
+    /* Stats row */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--rule);
+      background: var(--card-bg);
+      width: 100%;
+      max-width: 580px;
+    }
+    .stat-item {
+      flex: 1;
+      padding: 1.25rem 1rem;
+      border-right: 1px solid var(--rule);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 0.3rem;
+    }
+
+    /* Buttons */
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.4rem;
+      font-family: var(--body);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      border-radius: 2px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+      border: 1px solid var(--navy);
+    }
+    .btn-primary:hover { background: var(--navy-soft); text-decoration: none; }
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+    }
+    .btn-outline:hover { background: var(--bg-alt); text-decoration: none; }
+    .btn-gold {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+    }
+    .btn-gold:hover { background: #FDF3DC; text-decoration: none; }
+
+    /* Open badge */
+    .open-badge {
+      display: inline-block;
+      padding: 0.45rem 1rem;
+      background: #EBF5EB;
+      border: 1px solid #B8DDB8;
+      border-radius: 2px;
+      font-size: 0.72rem;
+      color: #2A6B2A;
+      font-family: var(--mono);
+      letter-spacing: 0.07em;
+    }
+
+    /* ─── Research ───────────────────────────────────────── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    .interest-card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      padding: 1.5rem;
+      border-left: 3px solid var(--gold);
+    }
+    .interest-card h4 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .interest-card p {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .research-direction {
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      padding: 2rem;
+      border-left: 3px solid var(--navy);
+      margin-top: 2rem;
+    }
+    .research-direction h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .research-direction p {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+    }
+
+    /* ─── Projects / Timeline ────────────────────────────── */
+    .projects-subsection {
+      margin-bottom: 3rem;
+    }
+    .projects-subsection h3 {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      padding: 1.75rem;
+      margin-bottom: 1.25rem;
+      transition: box-shadow 0.2s;
+    }
+    .project-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
+      gap: 1rem;
+    }
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .project-badge {
+      flex-shrink: 0;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+      border: 1px solid;
+    }
+    .badge-thesis  { color: #5A3E00; background: #FDF3DC; border-color: #E8C96A; }
+    .badge-research { color: #1E3A5F; background: #DCE8F8; border-color: #7AAED6; }
+    .badge-industry { color: #1A4731; background: #DCF0E6; border-color: #6CC08A; }
+    .badge-course { color: #4A1F6B; background: #EDE0F8; border-color: #B07DD6; }
+
+    .project-meta {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+      margin-bottom: 1rem;
+      line-height: 1.7;
+    }
+    .project-outcome {
+      font-size: 0.88rem;
+      color: var(--gold);
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 0.75rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      background: var(--bg-alt);
+      border: 1px solid var(--rule);
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+    }
+
+    /* ─── Publications ───────────────────────────────────── */
+    .pub-group {
+      margin-bottom: 2.5rem;
+    }
+    .pub-group-title {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .pub-item {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--bg-alt);
+    }
+    .pub-item:last-child { border-bottom: none; }
+    .pub-num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--ink-muted);
+      padding-top: 0.15rem;
+    }
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.3rem;
+    }
+    .pub-authors {
+      font-size: 0.83rem;
+      color: var(--ink-soft);
+      margin-bottom: 0.25rem;
+    }
+    .pub-authors strong { color: var(--ink); font-weight: 600; }
+    .pub-journal {
+      font-size: 0.83rem;
+      color: var(--ink-muted);
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+    .pub-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+    .status-published { background: #DCF0E6; color: #1A4731; border: 1px solid #6CC08A; }
+    .status-review    { background: #FDF3DC; color: #5A3E00; border: 1px solid #E8C96A; }
+    .status-prep      { background: #F0F0F0; color: #444; border: 1px solid #CCC; }
+
+    /* ─── About ──────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--ink-soft);
+      margin-bottom: 1.25rem;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    .about-sidebar h3 {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .score-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--bg-alt);
+      font-size: 0.85rem;
+    }
+    .score-label { color: var(--ink-soft); }
+    .score-val {
+      font-family: var(--mono);
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .edu-item {
+      margin-bottom: 1.5rem;
+    }
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .edu-school {
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      margin: 0.2rem 0;
+    }
+    .edu-detail {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ─── Contact ────────────────────────────────────────── */
+    #contact {
+      text-align: center;
+    }
+    #contact .section-title { margin-bottom: 1rem; }
+    .contact-intro {
+      color: var(--ink-soft);
+      max-width: 540px;
+      margin: 0 auto 3rem;
+      font-size: 0.95rem;
+    }
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--rule);
+      padding: 1.5rem 2rem;
+      min-width: 180px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-card:hover {
+      border-color: var(--gold);
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+    .contact-card-icon { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .contact-card-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 0.25rem;
+    }
+    .contact-card-val {
+      font-size: 0.85rem;
+      color: var(--navy);
+      word-break: break-all;
+    }
+
+    /* ─── Footer ─────────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--rule);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── Fade-in Animation ──────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────── */
+    @media (max-width: 900px) {
+      #home { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left {
+        position: static;
+        height: auto;
+        padding: 2.5rem 2rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        align-items: center;
+      }
+      .hero-avatar-wrap { margin-bottom: 0; }
+      .hero-avatar { width: 90px; height: 90px; font-size: 2.2rem; }
+      .hero-name { font-size: 1.1rem; text-align: left; }
+      .hero-role { text-align: left; }
+      .hero-location { text-align: left; margin-bottom: 0; }
+      .hero-divider { display: none; }
+      .hero-card-links { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
+      .open-badge { margin-top: 0; width: auto; }
+      .hero-right { padding: 2.5rem 1.5rem; }
+      .research-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-stats { flex-wrap: wrap; }
+      .stat-item { min-width: 100px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1rem 2rem; gap: 1rem; }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ───────────────────────────── -->
+<nav>
+  <span class="nav-brand">Mohammad Borhan Uddin</span>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────── -->
+<section id="home">
+
+  <!-- Left Panel — navy -->
+  <div class="hero-left">
+    <div class="hero-avatar-wrap">
+      <div class="hero-avatar">👤</div>
+      <div class="hero-avatar-ring"></div>
+    </div>
+    <div class="hero-name">Mohammad Borhan Uddin</div>
+    <div class="hero-role">Materials Science &amp; Engineering</div>
+    <div class="hero-location">📍 Chattogram, Bangladesh</div>
+    <div class="hero-divider"></div>
+    <div class="hero-card-links">
+      <a class="card-link" href="mailto:ibeborhan@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        ibeborhan@gmail.com
+      </a>
+      <a class="card-link" href="https://scholar.google.com" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        Google Scholar
+      </a>
+      <a class="card-link" href="https://linkedin.com" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="card-link" href="https://researchgate.net" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h4M12 8v8"/></svg>
+        ResearchGate
+      </a>
+      <a class="card-link" href="CV_MohammadBorhanUddin.pdf" download>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download CV
+      </a>
+    </div>
+    <div class="open-badge">● Open to PhD &amp; MSc Positions</div>
+  </div>
+
+  <!-- Right Panel — content -->
+  <div class="hero-right">
+    <div class="hero-meta">
+      <div class="hero-rule"></div>
+      <span class="hero-tag">Researcher &amp; Engineer</span>
+    </div>
+    <h1 class="hero-headline">
+      Engineering the next generation<br>of <em>perovskite solar cells</em>
+    </h1>
+    <p class="hero-pitch">
+      I combine nanoparticle engineering, machine learning-assisted simulation, and first-principles DFT to push the efficiency and stability limits of perovskite photovoltaics — backed by three years of applied materials experience in industrial steel production. My thesis model achieved a <strong>22% power conversion efficiency</strong>; my broader goal is bridging the gap between computational insight and manufacturable solar technology.
+    </p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Published Paper</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Under Review</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">22%</div>
+        <div class="stat-label">Thesis PCE</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3 yrs</div>
+        <div class="stat-label">Industry Exp.</div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#research" class="btn btn-primary">Explore My Research</a>
+      <a href="#publications" class="btn btn-outline">View Publications</a>
+      <a href="#contact" class="btn btn-gold">Get in Touch</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ── Research ──────────────────────────────── -->
+<section id="research">
+  <div class="section-label">02 — Research</div>
+  <h2 class="section-title">Research Interests</h2>
+
+  <div class="research-grid fade-in">
+    <div class="interest-card">
+      <h4>Nanoparticle-Enhanced Perovskite Solar Cells</h4>
+      <p>Investigating how nanoparticle-based interlayers (particularly silver nanoparticles) influence carrier transport, light trapping, and overall power conversion efficiency in perovskite photovoltaic devices.</p>
+    </div>
+    <div class="interest-card">
+      <h4>Machine Learning for Semiconductor Optimization</h4>
+      <p>Applying ML algorithms to simulate and optimize multilayered perovskite cell architectures, identifying non-intuitive parameter relationships that conventional simulation misses.</p>
+    </div>
+    <div class="interest-card">
+      <h4>First-Principles &amp; Computational Materials Design</h4>
+      <p>Using DFT-based first-principles calculations to probe optoelectronic properties of perovskite compounds, bridging atomistic insights with device-level performance modeling.</p>
+    </div>
+    <div class="interest-card">
+      <h4>Microstructural &amp; Optoelectronic Characterization</h4>
+      <p>Correlating microstructural evolution (via SEM-EDS, XRD, optical microscopy) with mechanical and optoelectronic properties across alloy and semiconductor material systems.</p>
+    </div>
+    <div class="interest-card">
+      <h4>Advanced Alloy Development</h4>
+      <p>Characterizing the mechanical performance of multi-component alloy systems (Al-Sn-Cu) through experimental microstructural analysis and property-structure correlations.</p>
+    </div>
+    <div class="interest-card">
+      <h4>Scalable Photovoltaic Manufacturing</h4>
+      <p>Drawing on industrial production engineering experience to address the gap between laboratory-optimized solar cell performance and scalable, cost-effective manufacturing processes.</p>
+    </div>
+  </div>
+
+  <div class="research-direction fade-in">
+    <h3>Future Research Direction</h3>
+    <p>My near-term research goal is to advance the long-term operational stability of perovskite solar cells — the critical bottleneck preventing commercial deployment. I aim to combine computational screening of novel perovskite compositions with experimental fabrication and characterization, ultimately contributing to devices that are both highly efficient and durable under real-world operating conditions. My industrial background in materials processing adds a manufacturing-aware perspective that I believe is essential for translating laboratory breakthroughs into scalable energy solutions.</p>
+  </div>
+</section>
+
+<!-- ── Projects ──────────────────────────────── -->
+<section id="projects">
+  <div class="section-label">03 — Projects &amp; Technical Work</div>
+  <h2 class="section-title">Projects &amp; Technical Work</h2>
+
+  <!-- Research Projects -->
+  <div class="projects-subsection">
+    <h3>Research Projects</h3>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-title">Performance Evaluation of Nanoparticle-Based Interlayered Perovskite Solar Cell</div>
+        <span class="project-badge badge-thesis">BSc Thesis</span>
+      </div>
+      <div class="project-meta">Apr 2021 – Mar 2022 &nbsp;·&nbsp; KUET, Khulna</div>
+      <p class="project-desc">Conducted a numerical investigation into efficiency enhancement of perovskite solar cells using nanoparticle-based interlayer engineering. Developed a simulation model in SCAPS-1D incorporating silver nanoparticles as an interlayer, systematically varying material and structural parameters to map their influence on photovoltaic performance metrics.</p>
+      <p class="project-outcome">▶ Achieved a simulated Power Conversion Efficiency (PCE) of 22% — a significant benchmark for nanoparticle-assisted perovskite architectures.</p>
+      <div class="project-tags">
+        <span class="tag">SCAPS-1D</span>
+        <span class="tag">Perovskite PV</span>
+        <span class="tag">Silver Nanoparticles</span>
+        <span class="tag">PCE Optimization</span>
+        <span class="tag">Numerical Simulation</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-title">Machine Learning-Assisted Perovskite Solar Cell Optimization</div>
+        <span class="project-badge badge-research">Research</span>
+      </div>
+      <div class="project-meta">Apr 2024 – Apr 2025 &nbsp;·&nbsp; Team Research Project</div>
+      <p class="project-desc">Applied supervised machine learning algorithms to simulate multilayered perovskite solar cell configurations, training models on large parameter datasets generated from device physics simulations. The ML framework identified non-linear relationships between structural parameters and efficiency metrics that conventional simulation sweeps would miss.</p>
+      <p class="project-outcome">▶ Results submitted for peer review. Demonstrated ML as a viable high-throughput screening tool for perovskite device optimization.</p>
+      <div class="project-tags">
+        <span class="tag">Machine Learning</span>
+        <span class="tag">SCAPS-1D</span>
+        <span class="tag">Python</span>
+        <span class="tag">Multilayer Devices</span>
+        <span class="tag">Parameter Optimization</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-title">First-Principles Analysis of Perovskite Optoelectronic Properties</div>
+        <span class="project-badge badge-research">Research</span>
+      </div>
+      <div class="project-meta">Jan 2025 – Jun 2025 &nbsp;·&nbsp; Collaborative Study</div>
+      <p class="project-desc">Performed DFT-based first-principles calculations to probe the electronic band structure, optical absorption spectra, and carrier effective masses of candidate perovskite compounds. Insights from ab initio calculations were fed into a device simulation framework to close the loop between atomistic properties and macroscopic performance.</p>
+      <p class="project-outcome">▶ Manuscript in preparation / under review. Establishes a multiscale modeling workflow bridging DFT and device simulation.</p>
+      <div class="project-tags">
+        <span class="tag">DFT</span>
+        <span class="tag">VESTA</span>
+        <span class="tag">First-Principles</span>
+        <span class="tag">Optoelectronics</span>
+        <span class="tag">Band Structure</span>
+        <span class="tag">SETFOS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Industry Projects -->
+  <div class="projects-subsection">
+    <h3>Professional / Industry Projects</h3>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-title">Process Optimization of 58-Ton Induction Furnace Operations</div>
+        <span class="project-badge badge-industry">Industry</span>
+      </div>
+      <div class="project-meta">Jul 2023 – Present &nbsp;·&nbsp; Bangladesh Steel Re-Rolling Mills Ltd., Chattogram</div>
+      <p class="project-desc">Led systematic process optimization of a 58-ton induction furnace producing international-grade steel. Analyzed tap-to-tap cycle data to identify bottlenecks, implemented revised charge sequencing and temperature control protocols, and optimized ferroalloy addition schedules based on melt chemistry targets.</p>
+      <p class="project-outcome">▶ Reduced tap-to-tap time by 2 minutes (8% production efficiency gain) and reduced ferroalloy consumption from 13 kg/ton to 10.5 kg/ton, yielding annual savings of approximately 3–4 crores BDT.</p>
+      <div class="project-tags">
+        <span class="tag">Induction Furnace</span>
+        <span class="tag">Process Optimization</span>
+        <span class="tag">Steel Metallurgy</span>
+        <span class="tag">Quality Control</span>
+        <span class="tag">Cost Reduction</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-title">Total Productive Maintenance (TPM) Implementation</div>
+        <span class="project-badge badge-industry">Industry</span>
+      </div>
+      <div class="project-meta">2023 – Present &nbsp;·&nbsp; Bangladesh Steel Re-Rolling Mills Ltd.</div>
+      <p class="project-desc">Key contributor to the initiation and plant-wide rollout of Total Productive Maintenance across the steel melting shop. Responsibilities included mapping equipment failure modes, establishing preventive maintenance schedules, and training departmental teams on SOP adherence. Also served as Departmental Training Coordinator, standardizing safety and quality practices across shifts.</p>
+      <p class="project-outcome">▶ Improved equipment reliability and uptime across the production floor; established a culture of proactive maintenance over reactive breakdown response.</p>
+      <div class="project-tags">
+        <span class="tag">TPM</span>
+        <span class="tag">Reliability Engineering</span>
+        <span class="tag">SOP Development</span>
+        <span class="tag">Training & Leadership</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-title">Modeling Microstructural &amp; Mechanical Properties of Al-Sn-Cu System</div>
+        <span class="project-badge badge-industry">Published Research</span>
+      </div>
+      <div class="project-meta">2023 &nbsp;·&nbsp; Co-authored Publication</div>
+      <p class="project-desc">Collaborative study investigating the behavior of the Al-Sn-Cu alloy system through combined mechanical testing (tensile, yield strength, hardness) and microstructural analysis (optical microscopy, SEM-EDS). The work established correlations between solidification microstructure and resulting mechanical performance — directly informed by applied industrial metallurgy experience.</p>
+      <p class="project-outcome">▶ Published in peer-reviewed journal (Nov 2023). Demonstrates applied materials characterization bridging industrial and academic contexts.</p>
+      <div class="project-tags">
+        <span class="tag">SEM-EDS</span>
+        <span class="tag">Al-Sn-Cu Alloy</span>
+        <span class="tag">Mechanical Testing</span>
+        <span class="tag">Microstructural Analysis</span>
+        <span class="tag">Optical Microscopy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Undergraduate Lab Projects -->
+  <div class="projects-subsection">
+    <h3>Undergraduate Lab &amp; Course Projects</h3>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-title">Steel Rebar Production Plant Design</div>
+        <span class="project-badge badge-course">Course Project</span>
+      </div>
+      <div class="project-meta">Oct 2022 &nbsp;·&nbsp; KUET — Manufacturing Processes</div>
+      <p class="project-desc">Designed a complete production plant for manufacturing 60-grade steel rebar with a daily output capacity of 30 tons. The project encompassed process flow design, equipment selection and sizing, material balance calculations, and quality control checkpoints aligned with ASTM standards. This project proved directly relevant to subsequent industry work in steel manufacturing.</p>
+      <div class="project-tags">
+        <span class="tag">Plant Design</span>
+        <span class="tag">Steel Processing</span>
+        <span class="tag">ASTM Standards</span>
+        <span class="tag">Process Engineering</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <div class="project-title">Material Substitution &amp; Performance Analysis — Mobile Cover</div>
+        <span class="project-badge badge-course">Course Project</span>
+      </div>
+      <div class="project-meta">Jun 2022 &nbsp;·&nbsp; KUET — Materials Selection (CES EduPack)</div>
+      <p class="project-desc">Applied systematic materials selection methodology using CES EduPack to evaluate and substitute materials in a mobile phone cover design. Identified ABS as a cost-performance optimum by mapping mechanical property requirements against material indices, demonstrating the practical application of Ashby chart methodology for engineering design decisions.</p>
+      <div class="project-tags">
+        <span class="tag">CES EduPack</span>
+        <span class="tag">Materials Selection</span>
+        <span class="tag">ABS Polymer</span>
+        <span class="tag">Ashby Charts</span>
+        <span class="tag">Design Optimization</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Publications ──────────────────────────── -->
+<section id="publications">
+  <div class="section-label">04 — Publications</div>
+  <h2 class="section-title">Publications &amp; Manuscripts</h2>
+
+  <div class="pub-group fade-in">
+    <div class="pub-group-title">Published</div>
+    <div class="pub-item">
+      <div class="pub-num">[1]</div>
+      <div>
+        <div class="pub-title">Modeling Microstructural and Mechanical Properties of Solidified Al-Sn-Cu System</div>
+        <div class="pub-authors">[Co-authors], <strong>Mohammad Borhan Uddin</strong>, et al.</div>
+        <div class="pub-journal">Journal · November 2023</div>
+        <span class="pub-status status-published">● Published</span>
+        &nbsp;<a href="#" style="font-size:0.78rem; color: var(--gold);">DOI →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="pub-group fade-in">
+    <div class="pub-group-title">Submitted / Under Review</div>
+    <div class="pub-item">
+      <div class="pub-num">[2]</div>
+      <div>
+        <div class="pub-title">Machine Learning-Assisted Optimization of Multilayered Perovskite Solar Cells</div>
+        <div class="pub-authors"><strong>Mohammad Borhan Uddin</strong>, et al.</div>
+        <div class="pub-journal">Target journal · Submitted 2024–2025</div>
+        <span class="pub-status status-review">● Under Review</span>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">[3]</div>
+      <div>
+        <div class="pub-title">First-Principles Analysis of Optoelectronic Properties in Perovskite Compounds for Photovoltaic Applications</div>
+        <div class="pub-authors"><strong>Mohammad Borhan Uddin</strong>, et al.</div>
+        <div class="pub-journal">Target journal · Under Review / In Preparation 2025</div>
+        <span class="pub-status status-review">● Under Review</span>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-num">[4]</div>
+      <div>
+        <div class="pub-title">Perovskite Solar Cell Performance Enhancement via Nanoparticle Interlayer Engineering</div>
+        <div class="pub-authors"><strong>Mohammad Borhan Uddin</strong>, et al.</div>
+        <div class="pub-journal">Target journal · Manuscript Under Review</div>
+        <span class="pub-status status-review">● Under Review</span>
+      </div>
+    </div>
+  </div>
+
+  <p style="font-size: 0.82rem; color: var(--ink-muted); font-style: italic;">
+    * Full author lists, journal names, and DOIs will be updated upon acceptance. Preprints and abstracts available on request.
+  </p>
+</section>
+
+<!-- ── About ─────────────────────────────────── -->
+<section id="about">
+  <div class="section-label">05 — About &amp; Background</div>
+  <h2 class="section-title">About &amp; Background</h2>
+
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <p>I am a Materials Science and Engineering graduate from Khulna University of Engineering and Technology (KUET), Bangladesh, where I ranked 16th in my cohort of 65 students. My academic journey was defined by a growing fascination with the materials physics underlying next-generation solar energy technologies — a thread that runs from my undergraduate thesis through my current research manuscripts.</p>
+
+      <p>Since graduating, I have worked as a Production Engineer at Bangladesh Steel Re-Rolling Mills Limited in Chattogram, operating and optimizing a 58-ton induction furnace in an industrial steel melting environment. While this sits outside the solar cell domain, it has given me an irreplaceable understanding of how materials behave under real process constraints — knowledge that I believe is essential for any researcher serious about translating lab-scale breakthroughs into manufacturable technologies.</p>
+
+      <p>In parallel with my industry role, I have continued active research: co-authoring a published study on Al-Sn-Cu alloy microstructure, leading a machine learning-assisted perovskite optimization study, and contributing to a first-principles optoelectronic characterization project. Three manuscripts from this work are currently under review.</p>
+
+      <p>I am now seeking PhD or thesis-based Masters positions in photovoltaics, computational materials science, or related fields — particularly in North America and Europe — where I can pursue the stability and scalability challenges that I believe will define the next decade of perovskite solar cell research.</p>
+
+      <a href="CV_MohammadBorhanUddin.pdf" class="btn btn-primary" download style="margin-top:0.5rem; display:inline-flex;">Download Full CV</a>
+    </div>
+
+    <div class="about-sidebar">
+      <div style="margin-bottom: 2rem;">
+        <h3>Education</h3>
+        <div class="edu-item">
+          <div class="edu-degree">B.Sc. Materials Science &amp; Engineering</div>
+          <div class="edu-school">Khulna University of Engineering &amp; Technology</div>
+          <div class="edu-detail">Dec 2017 – Feb 2023 &nbsp;·&nbsp; CGPA 3.48 / 4.00</div>
+          <div class="edu-detail">Class Rank: 16 / 65</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h3>Test Scores</h3>
+        <div class="score-row"><span class="score-label">GRE Total</span><span class="score-val">304 / 340</span></div>
+        <div class="score-row"><span class="score-label">GRE Quant</span><span class="score-val">153</span></div>
+        <div class="score-row"><span class="score-label">GRE Verbal</span><span class="score-val">151</span></div>
+        <div class="score-row"><span class="score-label">IELTS Overall</span><span class="score-val">8.0 / 9.0</span></div>
+        <div class="score-row"><span class="score-label">IELTS Listening</span><span class="score-val">8.5</span></div>
+        <div class="score-row"><span class="score-label">IELTS Reading</span><span class="score-val">8.5</span></div>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <h3>Technical Skills</h3>
+        <div class="skills-grid">
+          <span class="tag">SCAPS-1D</span>
+          <span class="tag">VESTA</span>
+          <span class="tag">SETFOS</span>
+          <span class="tag">CES EduPack</span>
+          <span class="tag">SEM / EDS</span>
+          <span class="tag">TEM</span>
+          <span class="tag">XRD / HiScore+</span>
+          <span class="tag">TGA</span>
+          <span class="tag">Python / ML</span>
+          <span class="tag">DFT</span>
+          <span class="tag">TPM</span>
+        </div>
+      </div>
+
+      <div>
+        <h3>Awards</h3>
+        <p style="font-size: 0.85rem; color: var(--ink-soft);">University merit scholarship for academic excellence — awarded for the final three years of undergraduate study.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Contact ───────────────────────────────── -->
+<section id="contact">
+  <div class="section-label" style="text-align:center;">06 — Contact &amp; Opportunities</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <p class="contact-intro">
+    I am actively seeking PhD and thesis-based Masters positions in photovoltaics and computational materials science for Fall 2025 / 2026 intake. I welcome research discussions, collaboration inquiries, and supervisor outreach.
+  </p>
+  <div class="contact-cards">
+    <a class="contact-card" href="mailto:ibeborhan@gmail.com">
+      <div class="contact-card-icon">✉️</div>
+      <div class="contact-card-label">Email</div>
+      <div class="contact-card-val">ibeborhan@gmail.com</div>
+    </a>
+    <a class="contact-card" href="https://scholar.google.com" target="_blank">
+      <div class="contact-card-icon">🎓</div>
+      <div class="contact-card-label">Google Scholar</div>
+      <div class="contact-card-val">Mohammad Borhan Uddin</div>
+    </a>
+    <a class="contact-card" href="https://linkedin.com" target="_blank">
+      <div class="contact-card-icon">💼</div>
+      <div class="contact-card-label">LinkedIn</div>
+      <div class="contact-card-val">View Profile</div>
+    </a>
+    <a class="contact-card" href="https://researchgate.net" target="_blank">
+      <div class="contact-card-icon">🔬</div>
+      <div class="contact-card-label">ResearchGate</div>
+      <div class="contact-card-val">View Profile</div>
+    </a>
+  </div>
+  <div class="open-badge" style="display:inline-block; margin: 0 auto;">
+    ● Currently Open to PhD &amp; MSc Research Positions — North America &amp; Europe
+  </div>
+</section>
+
+<!-- ── Footer ────────────────────────────────── -->
+<footer>
+  © 2025 Mohammad Borhan Uddin &nbsp;·&nbsp; Materials Science &amp; Engineering &nbsp;·&nbsp; Built with GitHub Pages
+</footer>
+
+<!-- ── JS ────────────────────────────────────── -->
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Active nav link highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navAs    = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navAs.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--gold)' : '';
+    });
+  });
+</script>
+</body>
+</html>
