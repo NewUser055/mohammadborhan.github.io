@@ -619,33 +619,12 @@
     }
 
     /* ─── Responsive ─────────────────────────────────────── */
-    @media (max-width: 900px) {
-      #home { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left {
-        position: static;
-        height: auto;
-        padding: 2.5rem 2rem;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-        align-items: center;
-      }
-      .hero-avatar-wrap { margin-bottom: 0; }
-      .hero-avatar { width: 90px; height: 90px; font-size: 2.2rem; }
-      .hero-name { font-size: 1.1rem; text-align: left; }
-      .hero-role { text-align: left; }
-      .hero-location { text-align: left; margin-bottom: 0; }
-      .hero-divider { display: none; }
-      .hero-card-links { flex-direction: row; flex-wrap: wrap; gap: 0.5rem; }
-      .open-badge { margin-top: 0; width: auto; }
-      .hero-right { padding: 2.5rem 1.5rem; }
+    @media (max-width: 768px) {
+      #home { padding-top: calc(var(--nav-h) + 3rem); padding-bottom: 3rem; }
+      .hero-stats { flex-wrap: wrap; }
+      .stat-item { min-width: 40%; }
       .research-grid { grid-template-columns: 1fr; }
       .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .hero-stats { flex-wrap: wrap; }
-      .stat-item { min-width: 100px; }
-    }
-    @media (max-width: 768px) {
       .nav-links { display: none; flex-direction: column; position: absolute; top: var(--nav-h); left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--rule); padding: 1rem 2rem; gap: 1rem; }
       .nav-links.open { display: flex; }
       .nav-toggle { display: flex; }
@@ -673,77 +652,75 @@
 <!-- ── Hero ─────────────────────────────────── -->
 <section id="home">
 
-  <!-- Left Panel — navy -->
-  <div class="hero-left">
-    <div class="hero-avatar-wrap">
-      <div class="hero-avatar"> <img> </div>
-      <div class="hero-avatar-ring"></div>
+  <!-- Avatar -->
+  <div class="hero-avatar">👤</div>
+
+  <!-- Name & identity -->
+  <h1 class="hero-name">Mohammad Borhan Uddin</h1>
+  <div class="hero-role">Materials Science &amp; Engineering &nbsp;·&nbsp; Researcher &amp; Engineer</div>
+  <div class="hero-location">📍 Chattogram, Bangladesh</div>
+
+  <!-- Gold rule -->
+  <div class="hero-rule-line"></div>
+
+  <!-- Bio — thoughtful, passionate, all three themes equally -->
+  <p class="hero-pitch">
+    Perovskite solar cells fascinate me because they sit at the edge of what's possible — extraordinarily efficient in the lab, yet still fragile enough that the world hasn't fully unlocked them. My research has been a journey through that gap: from simulating <strong>nanoparticle interlayers</strong> that pushed my thesis model to a <strong>22% power conversion efficiency</strong>, to applying <strong>machine learning</strong> to uncover hidden patterns in multilayer device behaviour, to probing the quantum-level optoelectronic properties of perovskite compounds through <strong>first-principles DFT</strong>. Alongside this, three years engineering steel in an industrial furnace have taught me something no simulation can — how materials actually behave under real-world pressure, and how far the distance is between a promising result and a manufacturable one. I want to close that distance.
+  </p>
+
+  <!-- Stats strip -->
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">1</div>
+      <div class="stat-label">Published Paper</div>
     </div>
-    <div class="hero-name">Mohammad Borhan Uddin</div>
-    <div class="hero-role">Materials Engineer | Perovskite Solar Cell Researcher</div>
-    <div class="hero-location">📍 Chattogram, Bangladesh</div>
-    <div class="hero-divider"></div>
-    <div class="hero-card-links">
-      <a class="card-link" href="mailto:ibeborhan@gmail.com">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        ibeborhan@gmail.com
-      </a>
-      <a class="card-link" href="https://scholar.google.com" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        Google Scholar
-      </a>
-      <a class="card-link" href="https://linkedin.com" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        LinkedIn
-      </a>
-      <a class="card-link" href="https://researchgate.net" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h4M12 8v8"/></svg>
-        ResearchGate
-      </a>
-      <a class="card-link" href="CV_MohammadBorhanUddin.pdf" download>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download CV
-      </a>
+    <div class="stat-item">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Under Review</div>
     </div>
-    <div class="open-badge">● Open to PhD &amp; MSc Positions</div>
+    <div class="stat-item">
+      <div class="stat-num">22%</div>
+      <div class="stat-label">Thesis PCE</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">3 yrs</div>
+      <div class="stat-label">Industry Exp.</div>
+    </div>
   </div>
 
-  <!-- Right Panel — content -->
-  <div class="hero-right">
-    <div class="hero-meta">
-      <div class="hero-rule"></div>
-      <span class="hero-tag">Researcher &amp; Engineer</span>
-    </div>
-    <h1 class="hero-headline">
-      Engineering the next generation<br>of <em>perovskite solar cells</em>
-    </h1>
-    <p class="hero-pitch">
-I have developed a strong foundation in perovskite photovoltaics through computational modeling and nanoparticle-based device optimization. I now aim to extend this work toward experimental and scalable solar cell technologies, focusing on how efficiency gains can be translated into commercially viable, manufacturable, and sustainable solutions. My goal is to bridge fundamental materials research with real-world photovoltaic deployment without compromising device performance.
-    </p>
-    <div class="hero-stats">
-      <div class="stat-item">
-        <div class="stat-num">1</div>
-        <div class="stat-label">Published Paper</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Under Review</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">22%</div>
-        <div class="stat-label">Thesis PCE</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-num">3 yrs</div>
-        <div class="stat-label">Industry Exp.</div>
-      </div>
-    </div>
-    <div class="hero-actions">
-      <a href="#research" class="btn btn-primary">Explore My Research</a>
-      <a href="#publications" class="btn btn-outline">View Publications</a>
-      <a href="#contact" class="btn btn-gold">Get in Touch</a>
-    </div>
+  <!-- Action buttons -->
+  <div class="hero-actions">
+    <a href="#research" class="btn btn-primary">Explore My Research</a>
+    <a href="#publications" class="btn btn-outline">View Publications</a>
+    <a href="#contact" class="btn btn-gold">Get in Touch</a>
   </div>
+
+  <!-- Social links -->
+  <div class="hero-card-links">
+    <a class="card-link" href="mailto:ibeborhan@gmail.com">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      Email
+    </a>
+    <a class="card-link" href="https://scholar.google.com" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Google Scholar
+    </a>
+    <a class="card-link" href="https://linkedin.com" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a class="card-link" href="https://researchgate.net" target="_blank">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h4M12 8v8"/></svg>
+      ResearchGate
+    </a>
+    <a class="card-link" href="CV_MohammadBorhanUddin.pdf" download>
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download CV
+    </a>
+  </div>
+
+  <!-- Open badge -->
+  <div class="open-badge">● Open to PhD &amp; MSc Positions — North America &amp; Europe</div>
 
 </section>
 
